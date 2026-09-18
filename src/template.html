@@ -9,16 +9,19 @@
 
 <body>
     <main>
-        <form action="">
+        <form id="weather-form">
             <label for="weather">Insert location for weather data</label>
             <input type="text" name="weather" id="weather">
-            <button id="submit-location-weather">Submit</button>
+            <button id="submit-location-weather" type="submit">Submit</button>
         </form>
-
-        <div class="display-content">
+        <div id="loading-spinner" style="display: none;">
+            <p>Loading</p>
+        </div>
+        <div class="display-content" style="display: none;">
             <h2 id="weather-location"></h2>
             <p id="weather-temp"></p>
             <p id="weather-desc"></p>
+            <button id="toggle-unit" type="button"></button>
         </div>
     </main>
 </body>
