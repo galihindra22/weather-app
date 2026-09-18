@@ -1,59 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <title>Document</title>
 </head>
-
 <body>
-    <aside>
-        <div class="projects">
-            <h2>Projects</h2>
-            <ul id="project-list"></ul>
-            <button type="button" id="collapse-add-project">Add Project</button>
-            <div class="project-form-content">
-                <form id="new-project-form">
-                    <label for="project-input">Project Name</label>
-                    <input type="text" id="project-input" name="project-name" required>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
-    </aside>
-    <main>
-        <div class="container">
-            <header>
-                <h1 id="active-project-title">Default Project</h1>
-            </header>
-            <button type="button" id="collapse-add-todo">Add Task</button>
-            <div class="todo-form-content">
-                <form id="new-todo-form">
-                    <label for="todo-title">Task Title</label>
-                    <input type="text" id="todo-title" name="todo-title" required>
-                    <label for="todo-description">Description</label>
-                    <textarea type="textarea" name="todo-description" id="todo-description"></textarea>
-                    <label for="todo-date">Due Date</label>
-                    <input type="date" id="todo-date" name="todo-date">
-                    <label for="todo-priority">Priority</label>
-                    <select name="todo-priority" id="todo-priority">
-                        <option value="Low">Low</option>
-                        <option value="Medium">Medium</option>
-                        <option value="High">High</option>
-                    </select>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-            <div class="content-list">
-                <p id="task-column">Task</p>
-                <p id="description-column">Description</p>
-                <p id="date-column">Due Date</p>
-                <p id="priority-column">Priority</p>
-                <div id="todo-list"></div>
-            </div>    
-        </div>
-    </main>
+    
 </body>
-
 </html>
