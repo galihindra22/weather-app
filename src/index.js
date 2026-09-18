@@ -11,6 +11,7 @@ const location = document.getElementById("weather-location");
 const temperature = document.getElementById("weather-temp");
 const condition = document.getElementById("weather-desc");
 const toggleUnitBtn = document.getElementById("toggle-unit");
+const img = document.querySelector("img");
 
 let isFahrenheit = true;
 let currentTempF = null;
@@ -23,12 +24,28 @@ async function getLocationData(location) {
     return await response.json();
 }
 
+async function getGiphy(searchTerm){
+    try{
+        const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=rfMO3VZrwXZk1GnQ7CajJ8LiKZ8mK0ws&s=${searchTerm +" weather"}&rating=g`);
+        if(!response.ok){
+            throw new Error ("Failed to fetch GIF");
+        }
+
+        const gifData = await response.json();
+        return gifData.data.images.original.url
+    }catch(error){
+        console.log(error);
+        return "";
+    }
+}
+
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
     displayLoading();
 
     try {
         const data = await getLocationData(locationInput.value.trim());
+        console.log(data);
         displayWeatherData(data);
     } catch (error) {
         console.log(error);
@@ -49,14 +66,23 @@ function hideLoading(){
     submitLocationBtn.disabled = false;
 }
 
-function displayWeatherData(data) {
+async function displayWeatherData(data) {
     location.textContent = data.resolvedAddress;
     temperature.textContent = data.currentConditions.temp + "°F";
     condition.textContent = data.currentConditions.conditions;
     toggleUnitBtn.textContent = "Display in Celsius";
-
+    
     isFahrenheit = true;
     currentTempF = data.currentConditions.temp;
+
+    const gifUrl = await getGiphy(data.currentConditions.conditions);
+    if (gifUrl) {
+        img.src = gifUrl;
+        img.style.display = "block";
+    } else {
+        img.style.display = "none";
+    }
+
     contentDiv.style.display = "block";
 }
 
