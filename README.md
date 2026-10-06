@@ -4,3 +4,5 @@ A dynamic web application that fetches real-time weather data and displays conte
 
 - Javascript
 - External REST APIs: Visual Crossing API, Giphy API
+
+Live site: galihindra22.github.io/weather-app
